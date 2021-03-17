@@ -30,8 +30,7 @@ public class StreamsFlatMapExample {
 		Long noOfDistinctActivities = StudentDataBase.getAllStudents().stream()
 				.map(Student::getActivities) // Stream of List<String>
 				.flatMap(List::stream)
-				.distinct()
-				.count();
+				.distinct().count();
 		return noOfDistinctActivities;
 	}
 

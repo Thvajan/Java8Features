@@ -1,5 +1,7 @@
 package learning.functionalInterfaces;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
@@ -32,6 +34,8 @@ public class PredicateWithConsumerExample {
 
 	public static void main(String[] args) {
 		List<Student> allStudents = StudentDataBase.getAllStudents();
+		Comparator<? super Student> c = (s1,s2)->Double.compare(s1.getGpa(),s2.getGpa());
+		Collections.sort(allStudents, c.reversed());
 		new PredicateWithConsumerExample().printNameAndActivities(allStudents);
 	}
 
